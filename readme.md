@@ -19,7 +19,7 @@ Run `npm install` to install the npm packages
     Get the initial Down Jones Dataset. <a href='http://archive.ics.uci.edu/ml/datasets/Dow+Jones+Index#'>Dow Jones Dataset</a>
     <ul>
         <li>Saved Dataset as .csv and .json to allow easier import into MongoDB</li>
-        <li>Stored in NodeServer/data folder</li>
+        <li>Stored in src/data folder</li>
     </ul>
   </li>
   <li>Basic functionality of the application server
@@ -39,7 +39,12 @@ Run `npm install` to install the npm packages
         <li>Implemented functionality for adding multiple records at a time</li>
     </ul>
   </li>
-  <li>Added Validation for each of the endpoints. Assumption is every field is required</li>
+  <li>Added Validation for each of the endpoints. 
+    <ul>
+      <li>Assumption is every field is required</li>
+      <li>using npm package express-validator</li>
+    </ul>
+  </li>
   <li>Added Test Cases
     <ul>
         <li>Test database for connection</li>
@@ -52,9 +57,9 @@ Run `npm install` to install the npm packages
 
 ## Application server
 
-Run `node app.js` inside the Node folder to start the application server. Application server is hosted at `http://localhost:8081/`.
+Run `node app.js` to start the application server. Application server is hosted at `http://localhost:8081/`.
 
-Optional: Add Optional Parameter `--reseed` to reseed the collection. 
+Optional: Add Optional Parameter `--reseed` to reseed the collection. Example: `node app.js --reseed`
 
 ## Running tests
 
