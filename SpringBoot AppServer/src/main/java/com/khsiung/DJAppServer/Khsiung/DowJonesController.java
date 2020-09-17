@@ -1,6 +1,7 @@
 package com.khsiung.controller;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.*; 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -55,6 +56,35 @@ public class DowJonesController {
 		Map<String, Object> response = new LinkedHashMap<String, Object>();
 		response.put("message", "dowjones created successfully");
 		response.put("dowjones", dowjones);
+		return response;
+	}
+
+	@PostMapping("/upload")
+	public Map<String, Integer> upload(@RequestBody List<Map<String, Object>> dowJones){
+		dowJones.forEach(dj -> {
+			DowJones dowjones = new DowJones(
+				dj.get("quarter").toString(),
+				dj.get("stock").toString(),
+				dj.get("date").toString(),
+				dj.get("open").toString(),
+				dj.get("high").toString(),
+				dj.get("low").toString(),
+				dj.get("close").toString(),
+				dj.get("volume").toString(),
+				dj.get("percent_change_price").toString(),
+				dj.get("percent_change_volume_over_last_wk").toString(),
+				dj.get("previous_weeks_volume").toString(),
+				dj.get("next_weeks_open").toString(),
+				dj.get("next_weeks_close").toString(),
+				dj.get("percent_change_next_weeks_price").toString(),
+				dj.get("days_to_next_dividend").toString(),
+				dj.get("percent_return_next_dividend").toString());
+			repository.save(dowjones);
+
+		});
+		
+		Map<String, Integer> response = new LinkedHashMap<String, Integer>();
+		response.put("dowjones", dowJones.size());
 		return response;
 	}
 		
