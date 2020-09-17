@@ -63,7 +63,7 @@ Optional: Add Optional Parameter `--reseed` to reseed the collection. Example: `
 
 ## Running tests
 
-Run `npm test` inside the Node Folder to execute the test cases defined in the "Test" folder;
+Run `npm test` to execute the test cases defined in the "Test" folder;
 
 Note: The application server should be stopped before running "npm test" otherwise the port will be in use and the test will fail.
 
