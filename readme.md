@@ -4,6 +4,7 @@
 You can now use docker to start the application server
 
 Run "docker-compose up" to start the application in docker.
+Optional : Add " -d" to run in background mode. 
 
 
 ## Prerequisites :
