@@ -11,7 +11,8 @@ Optional : Add " -d" to run in background mode.
 The following needs to be installed
 <ul>
   <li>NodeJS</li>
-  <li>MongoDB</li>  
+  <li>MongoDB</li> 
+  <li>Docker (If using docker to run the app) </li>
 </ul>
 
 ## Getting Started:
