@@ -21,7 +21,8 @@
   },
   "scripts": {
     "test": "mocha",
-    "start": "node app.js"
+    "start": "node app.js",
+    "start_with_initial_seed": "node app.js --reseed"
   },
   "author": "",
   "license": "ISC"

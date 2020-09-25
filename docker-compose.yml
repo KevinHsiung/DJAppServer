@@ -1,0 +1,18 @@
+version: "3"
+services:
+       dj-app-server:
+           container_name: dj-app-server
+           image: dj-app-server
+           restart: always
+           build: .
+           ports:
+             - "8081:8081"
+           links:
+             - mongo
+           environment:
+             - MONGO_URL=mongodb://mongo
+       mongo:
+             container_name: mongo
+             image: mongo
+             ports:
+               - '27018:27017'

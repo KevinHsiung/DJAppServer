@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const { body, validationResult } = require('express-validator');
+const { query, body, validationResult } = require('express-validator');
 const db = require('./mongodb.js');
 const seedData = require('./data/dow_jones_index.json');
 
@@ -8,14 +8,14 @@ const seedData = require('./data/dow_jones_index.json');
 app.use(express.json());
 
 app.get('/', function (req, res) {
-   return res.statusCode(200);
+   return res.status(200).json();
 });
 
 
 //Search ndpoint for the requirement "query for data by stock ticker".
 //Expects a body with '{"ticker": <name of ticker>}' json object.
 
-app.get('/search',[ body("ticker").notEmpty()],  async (req, res) => {   
+app.get('/search',[ query("ticker").notEmpty()],  async (req, res) => {   
    const errors = validationResult(req);
    if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });

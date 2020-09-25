@@ -4,7 +4,7 @@ var {MongoClient} = require('mongodb');
 //connects to a MongoDB and returns a client
 //TODO - figure a way to close the client after other methods calls. 
 async function getDB(){
-    const uri = "mongodb://localhost";
+    const uri = process.env.MONGO_URL || "mongodb://localhost";
     const client = new MongoClient(uri,{useUnifiedTopology: true});    
     try {
         await client.connect();
